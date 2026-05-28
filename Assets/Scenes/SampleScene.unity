@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 474236618}
   - component: {fileID: 474236623}
   - component: {fileID: 474236622}
+  - component: {fileID: 474236624}
   m_Layer: 0
   m_Name: portaluppi
   m_TagString: Player
@@ -314,6 +315,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VidaJogador
   vidaMaxima: 100
   vidaAtual: 0
+--- !u!114 &474236624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474236617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14431ac9682097a4fbff8d27e5a36ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AtaqueJogador
+  intervaloAtaque: 0.8
+  alcanceEspada: 1.5
+  dano: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,9 +580,10 @@ GameObject:
   - component: {fileID: 787573025}
   - component: {fileID: 787573027}
   - component: {fileID: 787573026}
+  - component: {fileID: 787573028}
   m_Layer: 0
   m_Name: PeixeSombra
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -746,6 +763,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DanoInimigo
   dano: 10
   intervaloDano: 1
+--- !u!114 &787573028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787573021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0ac64f4a5ae6e4ea0525e7013fc235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VidaInimigo
+  vidaMaxima: 150
+  vidaAtual: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

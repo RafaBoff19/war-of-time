@@ -43,14 +43,20 @@ public class AtaqueJogador : MonoBehaviour
         return maisProximo;
     }
 
-    void Atacar(GameObject inimigo)
+    void Atacar(GameObject alvo)
     {
-        VidaInimigo vida = inimigo.GetComponent<VidaInimigo>();
-        if (vida != null)
-        {
-            vida.ReceberDano(dano);
-            Debug.Log("Portaluppi golpeou " + inimigo.name + " com a Espada Crônica!");
-        }
+    // Tenta acertar inimigo comum
+    VidaInimigo vidaInimigo = alvo.GetComponent<VidaInimigo>();
+    if (vidaInimigo != null)
+    {
+        vidaInimigo.ReceberDano(dano);
+        return;
+    }
+
+    // Tenta acertar o boss
+    BossGisilva boss = alvo.GetComponent<BossGisilva>();
+    if (boss != null)
+        boss.ReceberDano(dano);
     }
 
     void OnDrawGizmosSelected()

@@ -209,5 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a0ac64f4a5ae6e4ea0525e7013fc235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaInimigo
-  vidaMaxima: 150
+  vidaMaxima: 30
   vidaAtual: 0
+  xpAoDarDrop: 10

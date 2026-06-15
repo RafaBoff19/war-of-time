@@ -23,7 +23,10 @@ public class VidaJogador : MonoBehaviour
 
     void Morrer()
     {
-        Debug.Log("Portaluppi morreu!");
-        gameObject.SetActive(false);
+    GameOver gameOver = FindObjectOfType<GameOver>();
+    if (gameOver != null)
+        gameOver.MostrarGameOver();
+
+    gameObject.SetActive(false);
     }
 }

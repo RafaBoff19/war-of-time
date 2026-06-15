@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class SpawnInimigos : MonoBehaviour
 {
+    [Header("Inimigos Comuns")]
     public GameObject prefabInimigo;
     public float intervaloSpawn = 2f;
     public float raioSpawn = 8f;
     public int maxInimigos = 20;
 
+    [Header("Boss")]
+    public GameObject prefabBoss;
+    public float tempoBoss = 60f; // boss aparece após 60 segundos
+    private bool bossSpawnado = false;
+
     private float temporizador = 0f;
+    private float temporizadorBoss = 0f;
     private Transform jogador;
 
     void Start()
@@ -21,25 +28,40 @@ public class SpawnInimigos : MonoBehaviour
     {
         if (jogador == null) return;
 
-        temporizador += Time.deltaTime;
-
-        if (temporizador >= intervaloSpawn)
+        // Spawn de inimigos comuns — para quando o boss aparecer
+        if (!bossSpawnado)
         {
-            if (GameObject.FindGameObjectsWithTag("Inimigo").Length < maxInimigos)
+            temporizador += Time.deltaTime;
+            if (temporizador >= intervaloSpawn)
             {
-                SpawnarInimigo();
+                if (GameObject.FindGameObjectsWithTag("Inimigo").Length < maxInimigos)
+                    SpawnarInimigo();
+
+                temporizador = 0f;
             }
-            temporizador = 0f;
+        }
+
+        // Spawn do boss após tempoBoss segundos
+        temporizadorBoss += Time.deltaTime;
+        if (!bossSpawnado && temporizadorBoss >= tempoBoss)
+        {
+            SpawnarBoss();
         }
     }
 
     void SpawnarInimigo()
     {
-        // Spawna sempre ao redor do Portaluppi
-        Vector2 posicaoAleatoria = Random.insideUnitCircle.normalized * raioSpawn;
-        Vector3 posicaoSpawn = jogador.position + new Vector3(posicaoAleatoria.x, posicaoAleatoria.y, 0);
+        Vector2 posAleatoria = Random.insideUnitCircle.normalized * raioSpawn;
+        Vector3 posSpawn = jogador.position + new Vector3(posAleatoria.x, posAleatoria.y, 0);
+        Instantiate(prefabInimigo, posSpawn, Quaternion.identity);
+    }
 
-        Instantiate(prefabInimigo, posicaoSpawn, Quaternion.identity);
+    void SpawnarBoss()
+    {
+        bossSpawnado = true;
+        Vector3 posSpawn = jogador.position + new Vector3(10f, 0f, 0f);
+        Instantiate(prefabBoss, posSpawn, Quaternion.identity);
+        Debug.Log("GISILVA APARECEU!");
     }
 
     void OnDrawGizmosSelected()
@@ -47,7 +69,5 @@ public class SpawnInimigos : MonoBehaviour
         Gizmos.color = Color.red;
         if (jogador != null)
             Gizmos.DrawWireSphere(jogador.position, raioSpawn);
-        else
-            Gizmos.DrawWireSphere(transform.position, raioSpawn);
     }
 }

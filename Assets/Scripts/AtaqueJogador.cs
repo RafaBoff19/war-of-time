@@ -7,6 +7,12 @@ public class AtaqueJogador : MonoBehaviour
     public int dano = 20;
 
     private float temporizador = 0f;
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -45,18 +51,18 @@ public class AtaqueJogador : MonoBehaviour
 
     void Atacar(GameObject alvo)
     {
-    // Tenta acertar inimigo comum
-    VidaInimigo vidaInimigo = alvo.GetComponent<VidaInimigo>();
-    if (vidaInimigo != null)
-    {
-        vidaInimigo.ReceberDano(dano);
-        return;
-    }
+        animator.SetTrigger("Atacar");
 
-    // Tenta acertar o boss
-    BossGisilva boss = alvo.GetComponent<BossGisilva>();
-    if (boss != null)
-        boss.ReceberDano(dano);
+        VidaInimigo vidaInimigo = alvo.GetComponent<VidaInimigo>();
+        if (vidaInimigo != null)
+        {
+            vidaInimigo.ReceberDano(dano);
+            return;
+        }
+
+        BossGisilva boss = alvo.GetComponent<BossGisilva>();
+        if (boss != null)
+            boss.ReceberDano(dano);
     }
 
     void OnDrawGizmosSelected()

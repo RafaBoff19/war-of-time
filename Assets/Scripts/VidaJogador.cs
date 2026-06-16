@@ -5,15 +5,17 @@ public class VidaJogador : MonoBehaviour
     public int vidaMaxima = 100;
     public int vidaAtual;
 
+    private Animator animator;
+
     void Start()
     {
         vidaAtual = vidaMaxima;
+        animator = GetComponent<Animator>();
     }
 
     public void ReceberDano(int dano)
     {
         vidaAtual -= dano;
-        Debug.Log("Vida do Portaluppi: " + vidaAtual);
 
         if (vidaAtual <= 0)
         {
@@ -23,10 +25,13 @@ public class VidaJogador : MonoBehaviour
 
     void Morrer()
     {
-    GameOver gameOver = FindObjectOfType<GameOver>();
-    if (gameOver != null)
-        gameOver.MostrarGameOver();
+        animator.SetTrigger("Morrer");
 
-    gameObject.SetActive(false);
+        GameOver gameOver = FindObjectOfType<GameOver>();
+        if (gameOver != null)
+            gameOver.MostrarGameOver();
+
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<AtaqueJogador>().enabled = false;
     }
 }

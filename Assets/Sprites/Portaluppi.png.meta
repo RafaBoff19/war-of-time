@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 21cd672bfe16475408d4993393ddd424
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8796448845471162274
+    second: Portaluppi_0
+  - first:
+      213: -1616971544505362457
+    second: Portaluppi_1
+  - first:
+      213: 157501395947025184
+    second: Portaluppi_2
+  - first:
+      213: 7641134413326991323
+    second: Portaluppi_3
+  - first:
+      213: 3922498444053050197
+    second: Portaluppi_4
+  - first:
+      213: -252153043312017569
+    second: Portaluppi_5
+  - first:
+      213: 3913026713899741105
+    second: Portaluppi_6
+  - first:
+      213: 2495429625301158485
+    second: Portaluppi_7
+  - first:
+      213: -4163270993142755151
+    second: Portaluppi_8
+  - first:
+      213: 1075925499221143785
+    second: Portaluppi_9
+  - first:
+      213: -5634645591956958088
+    second: Portaluppi_10
+  - first:
+      213: -2590067797273444043
+    second: Portaluppi_11
+  - first:
+      213: 7377025295614556210
+    second: Portaluppi_12
+  - first:
+      213: -4949964816399996254
+    second: Portaluppi_13
+  - first:
+      213: -2636652703383611370
+    second: Portaluppi_14
+  - first:
+      213: -4104940541531604555
+    second: Portaluppi_15
+  - first:
+      213: -4624251087221667403
+    second: Portaluppi_16
+  - first:
+      213: 5537858110951246329
+    second: Portaluppi_17
+  - first:
+      213: 3590609672896024822
+    second: Portaluppi_18
+  - first:
+      213: 7562838154568166361
+    second: Portaluppi_19
+  - first:
+      213: -7083879209508670598
+    second: Portaluppi_20
+  - first:
+      213: -3188956680660341116
+    second: Portaluppi_21
+  - first:
+      213: 2468143353183838565
+    second: Portaluppi_22
+  - first:
+      213: -7939130192421510366
+    second: Portaluppi_23
+  - first:
+      213: -6468178826507061257
+    second: Portaluppi_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Portaluppi_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 280
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2af143f8e93431a70800000000000000
+      internalID: 8796448845471162274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 279
+        width: 63
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e7d7d582fc5f89e0800000000000000
+      internalID: -1616971544505362457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 278
+        width: 63
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023fc056fae8f2200800000000000000
+      internalID: 157501395947025184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_3
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 279
+        width: 63
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdf3e53b343ca0a60800000000000000
+      internalID: 7641134413326991323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_4
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 278
+        width: 62
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 553fdc57d838f6630800000000000000
+      internalID: 3922498444053050197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 188
+        width: 48
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f7a50a42c208cf0800000000000000
+      internalID: -252153043312017569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_6
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 187
+        width: 48
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bfab9e601ddd4630800000000000000
+      internalID: 3913026713899741105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_7
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 187
+        width: 59
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55acf0ad50c81a220800000000000000
+      internalID: 2495429625301158485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_8
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 182
+        width: 56
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b0d906f6171936c0800000000000000
+      internalID: -4163270993142755151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_9
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 188
+        width: 59
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e07cd18a847eee00800000000000000
+      internalID: 1075925499221143785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_10
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 188
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8745f2010b7bdc1b0800000000000000
+      internalID: -5634645591956958088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_11
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 189
+        width: 52
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5318657af0b3e0cd0800000000000000
+      internalID: -2590067797273444043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_12
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 95
+        width: 62
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2383d24db65706660800000000000000
+      internalID: 7377025295614556210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 59
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aaebcbb9313e4bb0800000000000000
+      internalID: -4949964816399996254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_14
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 96
+        width: 61
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6181fbaf55ab86bd0800000000000000
+      internalID: -2636652703383611370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_15
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 96
+        width: 75
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b9b8ed83525807c0800000000000000
+      internalID: -4104940541531604555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_16
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 95
+        width: 79
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b940f1f22c53dfb0800000000000000
+      internalID: -4624251087221667403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_17
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 96
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f9c3cf6c9c6adc40800000000000000
+      internalID: 5537858110951246329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_18
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 96
+        width: 77
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f09c00497864d130800000000000000
+      internalID: 3590609672896024822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_19
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 96
+        width: 55
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db6ec06b3994f860800000000000000
+      internalID: 7562838154568166361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_20
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 8
+        width: 57
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73f575146101bd90800000000000000
+      internalID: -7083879209508670598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_21
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 8
+        width: 58
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ea1257bcc8eb3d0800000000000000
+      internalID: -3188956680660341116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_22
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 8
+        width: 67
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 561a34d8d4b904220800000000000000
+      internalID: 2468143353183838565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_23
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 7
+        width: 77
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 223232f372b82d190800000000000000
+      internalID: -7939130192421510366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portaluppi_24
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 6
+        width: 80
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7f75e80a96c36a0800000000000000
+      internalID: -6468178826507061257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Portaluppi_0: 8796448845471162274
+      Portaluppi_1: -1616971544505362457
+      Portaluppi_10: -5634645591956958088
+      Portaluppi_11: -2590067797273444043
+      Portaluppi_12: 7377025295614556210
+      Portaluppi_13: -4949964816399996254
+      Portaluppi_14: -2636652703383611370
+      Portaluppi_15: -4104940541531604555
+      Portaluppi_16: -4624251087221667403
+      Portaluppi_17: 5537858110951246329
+      Portaluppi_18: 3590609672896024822
+      Portaluppi_19: 7562838154568166361
+      Portaluppi_2: 157501395947025184
+      Portaluppi_20: -7083879209508670598
+      Portaluppi_21: -3188956680660341116
+      Portaluppi_22: 2468143353183838565
+      Portaluppi_23: -7939130192421510366
+      Portaluppi_24: -6468178826507061257
+      Portaluppi_3: 7641134413326991323
+      Portaluppi_4: 3922498444053050197
+      Portaluppi_5: -252153043312017569
+      Portaluppi_6: 3913026713899741105
+      Portaluppi_7: 2495429625301158485
+      Portaluppi_8: -4163270993142755151
+      Portaluppi_9: 1075925499221143785
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

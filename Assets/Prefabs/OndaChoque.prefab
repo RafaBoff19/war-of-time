@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.3679244, g: 0.9152441, b: 1, a: 1}
@@ -179,5 +179,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4852f5c8fabfd43b122c6ff6c811b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OndaChoque
-  velocidade: 6
-  dano: 15
+  velocidade: 10
+  dano: 40

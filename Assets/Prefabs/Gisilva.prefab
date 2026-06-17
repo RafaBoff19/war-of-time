@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.04077018, g: 0, b: 0.81886786, a: 1}
@@ -185,4 +185,4 @@ MonoBehaviour:
   prefabPeixeSombra: {fileID: 4670622531229605523, guid: d562f0f1a58427d48b6cf31914d23f3d, type: 3}
   quantidadeInvocacao: 3
   prefabOnda: {fileID: 8102714066098004846, guid: e2c74c11782e70d48a2639a35a77db82, type: 3}
-  intervaloOnda: 3
+  intervaloOnda: 1.5

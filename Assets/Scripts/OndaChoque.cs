@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class OndaChoque : MonoBehaviour
 {
-    public float velocidade = 6f;
-    public int dano = 15;
+    public float velocidade = 10f;
+    public int dano = 40;
     private Vector2 direcao;
 
     public void Inicializar(Vector2 dir)

@@ -182,7 +182,7 @@ MonoBehaviour:
   vidaMaxima: 300
   vidaAtual: 0
   velocidade: 1.5
-  prefabPeixeSombra: {fileID: 4670622531229605523, guid: d562f0f1a58427d48b6cf31914d23f3d, type: 3}
+  prefabPeixeSombra: {fileID: 4247012588801052238, guid: 8d650919b3a950a4fa3f3690e5f617c3, type: 3}
   quantidadeInvocacao: 3
   prefabOnda: {fileID: 8102714066098004846, guid: e2c74c11782e70d48a2639a35a77db82, type: 3}
   intervaloOnda: 1.5

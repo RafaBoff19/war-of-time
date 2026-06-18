@@ -21,11 +21,15 @@ public class BossGisilva : MonoBehaviour
 
     private Transform jogador;
     private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         vidaAtual = vidaMaxima;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         GameObject obj = GameObject.FindWithTag("Player");
         if (obj != null)
@@ -36,11 +40,18 @@ public class BossGisilva : MonoBehaviour
     {
         if (jogador == null) return;
 
-        // Persegue o jogador
         Vector2 direcao = (jogador.position - transform.position).normalized;
         rb.linearVelocity = direcao * velocidade;
 
-        // Onda de choque
+        if (animator != null)
+            animator.SetBool("walk", direcao.magnitude > 0.1f);
+
+        if (spriteRenderer != null)
+        {
+            if (direcao.x > 0.1f) spriteRenderer.flipX = false;
+            else if (direcao.x < -0.1f) spriteRenderer.flipX = true;
+        }
+
         temporizadorOnda += Time.deltaTime;
         if (temporizadorOnda >= intervaloOnda)
         {
@@ -48,7 +59,6 @@ public class BossGisilva : MonoBehaviour
             temporizadorOnda = 0f;
         }
 
-        // Ativa fase 2 em 50% de vida
         if (!fase2Ativada && vidaAtual <= vidaMaxima * 0.5f)
         {
             AtivarFase2();
@@ -59,22 +69,28 @@ public class BossGisilva : MonoBehaviour
     {
         if (prefabOnda == null) return;
 
-        // Lança 4 ondas em cruz
-        Vector2[] direcoes = {
-            Vector2.up, Vector2.down, Vector2.left, Vector2.right
-        };
+        Debug.Log("Chamando attack02 - Lançar Ondas"); // linha temporária de teste
+
+        if (animator != null)
+        animator.SetTrigger("attack02");
+
+        Vector2[] direcoes = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
 
         foreach (Vector2 dir in direcoes)
         {
-            GameObject onda = Instantiate(prefabOnda, transform.position, Quaternion.identity);
-            onda.GetComponent<OndaChoque>().Inicializar(dir);
+        GameObject onda = Instantiate(prefabOnda, transform.position, Quaternion.identity);
+        onda.GetComponent<OndaChoque>().Inicializar(dir);
         }
     }
 
     void AtivarFase2()
     {
         fase2Ativada = true;
-        Debug.Log("Gisilva - FASE 2! Invocando Peixe-Sombra!");
+        Debug.Log("BOSS - FASE 2! Invocando reforços!");
+
+        // attack02 = invocar
+        if (animator != null)
+            animator.SetTrigger("attack02");
 
         for (int i = 0; i < quantidadeInvocacao; i++)
         {
@@ -86,7 +102,9 @@ public class BossGisilva : MonoBehaviour
     public void ReceberDano(int dano)
     {
         vidaAtual -= dano;
-        Debug.Log("Gisilva HP: " + vidaAtual);
+
+        if (animator != null)
+            animator.SetTrigger("damage");
 
         if (vidaAtual <= 0)
             Morrer();
@@ -94,18 +112,19 @@ public class BossGisilva : MonoBehaviour
 
     void Morrer()
     {
-        Debug.Log("Gisilva derrotado!");
-        // Aqui futuramente abriremos o portal para a próxima camada
+        Debug.Log("Boss derrotado!");
         Destroy(gameObject);
     }
 
     void OnTriggerStay2D(Collider2D outro)
     {
-        if (outro.CompareTag("Player"))
-        {
-            VidaJogador vida = outro.GetComponent<VidaJogador>();
-            if (vida != null)
-                vida.ReceberDano(20);
-        }
+    if (outro.CompareTag("Player"))
+    {
+        VidaJogador vida = outro.GetComponent<VidaJogador>();
+        if (vida != null)
+            vida.ReceberDano(20);
+
+        // animator.SetTrigger("attack"); // comentado temporariamente para teste
+    }
     }
 }

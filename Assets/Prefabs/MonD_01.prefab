@@ -5395,13 +5395,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d356b1508e3bca4fadf7d9c59e176e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossGisilva
-  vidaMaxima: 300
+  vidaMaxima: 10
   vidaAtual: 0
   velocidade: 1.5
-  prefabPeixeSombra: {fileID: 4247012588801052238, guid: 8d650919b3a950a4fa3f3690e5f617c3, type: 3}
-  quantidadeInvocacao: 3
+  alcanceAtaque: 2.5
+  danoAtaque: 20
+  intervaloAtaqueCaC: 2
   prefabOnda: {fileID: 8102714066098004846, guid: e2c74c11782e70d48a2639a35a77db82, type: 3}
   intervaloOnda: 3
+  prefabPeixeSombra: {fileID: 4247012588801052238, guid: 8d650919b3a950a4fa3f3690e5f617c3, type: 3}
+  quantidadeInvocacao: 0
+  prefabEfeitoMorte: {fileID: 250170535462350878, guid: 2fad822f8413a294eb4295ec12bbe6ad, type: 3}
 --- !u!1 &4890047409051534222
 GameObject:
   m_ObjectHideFlags: 0

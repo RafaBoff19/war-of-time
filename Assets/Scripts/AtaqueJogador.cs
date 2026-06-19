@@ -51,18 +51,19 @@ public class AtaqueJogador : MonoBehaviour
 
     void Atacar(GameObject alvo)
     {
-        animator.SetTrigger("Atacar");
+    SomJogador som = GetComponent<SomJogador>();
+    if (som != null) som.TocarAtaque();
 
-        VidaInimigo vidaInimigo = alvo.GetComponent<VidaInimigo>();
-        if (vidaInimigo != null)
-        {
-            vidaInimigo.ReceberDano(dano);
-            return;
-        }
+    VidaInimigo vidaInimigo = alvo.GetComponent<VidaInimigo>();
+    if (vidaInimigo != null)
+    {
+        vidaInimigo.ReceberDano(dano);
+        return;
+    }
 
-        BossGisilva boss = alvo.GetComponent<BossGisilva>();
-        if (boss != null)
-            boss.ReceberDano(dano);
+    BossGisilva boss = alvo.GetComponent<BossGisilva>();
+    if (boss != null)
+        boss.ReceberDano(dano);
     }
 
     void OnDrawGizmosSelected()

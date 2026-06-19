@@ -15,29 +15,27 @@ public class VidaJogador : MonoBehaviour
 
     public void ReceberDano(int dano)
     {
-        vidaAtual -= dano;
+    if (morto) return;
+    vidaAtual -= dano;
 
-        if (vidaAtual <= 0)
-        {
-            Morrer();
-        }
+    SomJogador som = GetComponent<SomJogador>();
+    if (som != null) som.TocarDano();
+
+    if (vidaAtual <= 0)
+        Morrer();
     }
 
     void Morrer()
     {
-    animator.SetTrigger("Morrer");
+    if (morto) return;
+    morto = true;
 
+    SomJogador som = GetComponent<SomJogador>();
+    if (som != null) som.TocarMorte();
+
+    animator.SetTrigger("Morrer");
     GetComponent<PlayerMovement>().enabled = false;
     GetComponent<AtaqueJogador>().enabled = false;
-
-    // Espera a animação de morte tocar antes de mostrar Game Over
     Invoke("AcionarGameOver", 1.2f);
-    }
-
-    void AcionarGameOver()
-    {
-    GameOver gameOver = FindObjectOfType<GameOver>();
-    if (gameOver != null)
-        gameOver.MostrarGameOver();
     }
 }

@@ -18,19 +18,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+    float x = Input.GetAxisRaw("Horizontal");
+    float y = Input.GetAxisRaw("Vertical");
+    direcao = new Vector2(x, y).normalized;
 
-        direcao = new Vector2(x, y).normalized;
+    animator.SetFloat("Velocidade", direcao.magnitude);
 
-        // Atualiza o Animator
-        animator.SetFloat("Velocidade", direcao.magnitude);
+    SomJogador som = GetComponent<SomJogador>();
+    if (som != null) som.TocarPassos(direcao.magnitude > 0.1f);
 
-        // Vira o sprite para o lado que está andando
-        if (x > 0)
-            spriteRenderer.flipX = false;
-        else if (x < 0)
-            spriteRenderer.flipX = true;
+    if (x > 0) spriteRenderer.flipX = false;
+    else if (x < 0) spriteRenderer.flipX = true;
     }
 
     void FixedUpdate()

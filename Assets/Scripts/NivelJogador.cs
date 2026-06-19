@@ -9,18 +9,19 @@ public class NivelJogador : MonoBehaviour
     private VidaJogador vidaJogador;
     private AtaqueJogador ataqueJogador;
     private PlayerMovement movimento;
+    private SomJogador som;
 
     void Start()
     {
         vidaJogador = GetComponent<VidaJogador>();
         ataqueJogador = GetComponent<AtaqueJogador>();
         movimento = GetComponent<PlayerMovement>();
+        som = GetComponent<SomJogador>();
     }
 
     public void GanharXP(int quantidade)
     {
         xpAtual += quantidade;
-        Debug.Log("XP: " + xpAtual + "/" + xpParaProximoNivel);
 
         if (xpAtual >= xpParaProximoNivel)
             SubirDeNivel();
@@ -32,11 +33,12 @@ public class NivelJogador : MonoBehaviour
         xpAtual = 0;
         xpParaProximoNivel = Mathf.RoundToInt(xpParaProximoNivel * 1.5f);
 
-        // Aumenta os atributos automaticamente
+        if (som != null) som.TocarLevelUp();
+
         if (vidaJogador != null)
         {
             vidaJogador.vidaMaxima += 20;
-            vidaJogador.vidaAtual = vidaJogador.vidaMaxima; // cura ao subir de nível
+            vidaJogador.vidaAtual = vidaJogador.vidaMaxima;
         }
 
         if (ataqueJogador != null)

@@ -36,19 +36,24 @@ public class SomJogador : MonoBehaviour
         audioSource.PlayOneShot(somLevelUp);
     }
 
-    public void TocarPassos(bool andando)
+   public void TocarPassos(bool andando, float velocidade)
     {
-        if (andando && !passosTocando)
-        {
-            passosTocando = true;
-            audioSource.clip = somPassos;
-            audioSource.loop = true;
-            audioSource.Play();
-        }
-        else if (!andando && passosTocando)
-        {
-            passosTocando = false;
-            audioSource.Stop();
-        }
+    if (andando && !passosTocando)
+    {
+        passosTocando = true;
+        audioSource.clip = somPassos;
+        audioSource.loop = true;
+        audioSource.pitch = velocidade / 5f; // ajusta pitch conforme velocidade
+        audioSource.Play();
+    }
+    else if (!andando && passosTocando)
+    {
+        passosTocando = false;
+        audioSource.Stop();
+    }
+    else if (andando && passosTocando)
+    {
+        audioSource.pitch = velocidade / 2f; // mais rápido
+    }
     }
 }

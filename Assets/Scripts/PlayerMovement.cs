@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     animator.SetFloat("Velocidade", direcao.magnitude);
 
     SomJogador som = GetComponent<SomJogador>();
-    if (som != null) som.TocarPassos(direcao.magnitude > 0.1f);
+    if (som != null) som.TocarPassos(direcao.magnitude > 0.1f, velocidade);
 
     if (x > 0) spriteRenderer.flipX = false;
     else if (x < 0) spriteRenderer.flipX = true;

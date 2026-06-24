@@ -51,9 +51,14 @@ public class AtaqueJogador : MonoBehaviour
 
     void Atacar(GameObject alvo)
     {
+    // Som e animação de ataque
     SomJogador som = GetComponent<SomJogador>();
     if (som != null) som.TocarAtaque();
 
+    if (animator != null)
+        animator.Play("Portaluppi_Attack");
+
+    // Causa dano
     VidaInimigo vidaInimigo = alvo.GetComponent<VidaInimigo>();
     if (vidaInimigo != null)
     {

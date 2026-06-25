@@ -26,7 +26,7 @@ public class UIBoss : MonoBehaviour
                 bossAtual = boss;
                 painelBoss.SetActive(true);
                 barraVidaBoss.maxValue = bossAtual.vidaMaxima;
-                textoNomeBoss.text = "Gisilva — Rei das Baleias";
+                textoNomeBoss.text = "Vorzak - O Antigo";
             }
         }
         else

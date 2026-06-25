@@ -5263,6 +5263,7 @@ GameObject:
   - component: {fileID: 5838790725880947281}
   - component: {fileID: 8555274988253329155}
   - component: {fileID: -4806929597861055735}
+  - component: {fileID: 4048841849014283995}
   m_Layer: 0
   m_Name: MonD_01
   m_TagString: Inimigo
@@ -5395,7 +5396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d356b1508e3bca4fadf7d9c59e176e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossGisilva
-  vidaMaxima: 10
+  vidaMaxima: 300
   vidaAtual: 0
   velocidade: 1.5
   alcanceAtaque: 2.5
@@ -5404,8 +5405,111 @@ MonoBehaviour:
   prefabOnda: {fileID: 8102714066098004846, guid: e2c74c11782e70d48a2639a35a77db82, type: 3}
   intervaloOnda: 3
   prefabPeixeSombra: {fileID: 4247012588801052238, guid: 8d650919b3a950a4fa3f3690e5f617c3, type: 3}
-  quantidadeInvocacao: 0
+  quantidadeInvocacao: 10
   prefabEfeitoMorte: {fileID: 250170535462350878, guid: 2fad822f8413a294eb4295ec12bbe6ad, type: 3}
+  somSpawn: {fileID: 8300000, guid: 21c4a490b24ba2045bc815f7626a40ef, type: 3}
+  somAtaqueCaC: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+  somProjeteis: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
+  somInvocar: {fileID: 8300000, guid: 1eb7cbaf61d23a64bbd36c0a38b5cb0c, type: 3}
+  somDano: {fileID: 8300000, guid: f11db4559b3ffff45b62e9327fc5535d, type: 3}
+  somMorte: {fileID: 0}
+--- !u!82 &4048841849014283995
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4302433352432216531}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4890047409051534222
 GameObject:
   m_ObjectHideFlags: 0

@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4852f5c8fabfd43b122c6ff6c811b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OndaChoque
-  velocidade: 15
+  velocidade: 36
   dano: 40
 --- !u!198 &-963824813205934329
 ParticleSystem:

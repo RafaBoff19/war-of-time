@@ -26,29 +26,44 @@ public class BossGisilva : MonoBehaviour
     public int quantidadeInvocacao = 3;
     private bool fase2Ativada = false;
 
+    [Header("Efeito de Morte")]
+    public GameObject prefabEfeitoMorte;
+
+    [Header("Sons")]
+    public AudioClip somSpawn;
+    public AudioClip somAtaqueCaC;
+    public AudioClip somProjeteis;
+    public AudioClip somInvocar;
+    public AudioClip somDano;
+    public AudioClip somMorte;
+
     private Transform jogador;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
 
-    // duração da animação de attack = 0.867s
     private float duracaoAnimAtaque = 0.867f;
     private float temporizadorAnimAtaque = 0f;
     private bool animAtaqueRodando = false;
 
     void Start()
     {
-    vidaAtual = vidaMaxima;
-    rb = GetComponent<Rigidbody2D>();
-    animator = GetComponent<Animator>();
-    spriteRenderer = GetComponent<SpriteRenderer>();
+        vidaAtual = vidaMaxima;
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
-    // Começa o temporizador já "pronto" para atacar imediatamente
-    temporizadorAtaque = intervaloAtaqueCaC;
+        // Som de spawn
+        if (audioSource != null && somSpawn != null)
+            audioSource.PlayOneShot(somSpawn);
 
-    GameObject obj = GameObject.FindWithTag("Player");
-    if (obj != null)
-        jogador = obj.transform;
+        temporizadorAtaque = intervaloAtaqueCaC;
+
+        GameObject obj = GameObject.FindWithTag("Player");
+        if (obj != null)
+            jogador = obj.transform;
     }
 
     void Update()
@@ -58,14 +73,12 @@ public class BossGisilva : MonoBehaviour
         float distancia = Vector2.Distance(transform.position, jogador.position);
         Vector2 direcao = (jogador.position - transform.position).normalized;
 
-        // Vira o sprite
         if (spriteRenderer != null)
         {
             if (direcao.x > 0.1f) spriteRenderer.flipX = false;
             else if (direcao.x < -0.1f) spriteRenderer.flipX = true;
         }
 
-        // Controla o temporizador da animação de ataque
         if (animAtaqueRodando)
         {
             temporizadorAnimAtaque += Time.deltaTime;
@@ -75,14 +88,12 @@ public class BossGisilva : MonoBehaviour
                 temporizadorAnimAtaque = 0f;
                 atacando = false;
 
-                // Volta para walk ou idle depois que a animação terminar
                 if (animator != null)
                     animator.SetBool("walk", distancia > alcanceAtaque);
             }
-            return; // não faz mais nada enquanto a animação de ataque roda
+            return;
         }
 
-        // Onda de choque (projéteis) — só lança se não estiver atacando
         temporizadorOnda += Time.deltaTime;
         if (temporizadorOnda >= intervaloOnda && !atacando)
         {
@@ -90,13 +101,11 @@ public class BossGisilva : MonoBehaviour
             temporizadorOnda = 0f;
         }
 
-        // Fase 2
         if (!fase2Ativada && vidaAtual <= vidaMaxima * 0.5f)
         {
             AtivarFase2();
         }
 
-        // Ataque corpo a corpo
         if (distancia <= alcanceAtaque)
         {
             rb.linearVelocity = Vector2.zero;
@@ -115,13 +124,15 @@ public class BossGisilva : MonoBehaviour
                 if (animator != null)
                     animator.Play("attack");
 
-                // Dano no meio da animação (cajado batendo no chão ~0.45s)
+                // Som de ataque corpo a corpo
+                if (audioSource != null && somAtaqueCaC != null)
+                    audioSource.PlayOneShot(somAtaqueCaC);
+
                 Invoke("CausarDanoCaC", 0.45f);
             }
         }
         else
         {
-            // Persegue o jogador
             atacando = false;
             rb.linearVelocity = direcao * velocidade;
 
@@ -145,30 +156,34 @@ public class BossGisilva : MonoBehaviour
 
     void LancarOndas()
     {
-    if (prefabOnda == null) return;
+        if (prefabOnda == null) return;
 
-    if (animator != null)
-        animator.Play("attack_02");
+        if (animator != null)
+            animator.Play("attack_02");
 
-    Invoke("SpawnarOndas", 0.4f);
+        // Som de projéteis
+        if (audioSource != null && somProjeteis != null)
+            audioSource.PlayOneShot(somProjeteis);
+
+        Invoke("SpawnarOndas", 0.4f);
     }
 
     void SpawnarOndas()
     {
-    int quantidadeOndas = fase2Ativada ? 8 : 6;
-    float velocidadeOnda = fase2Ativada ? 10f : 6f;
+        int quantidadeOndas = fase2Ativada ? 8 : 6;
+        float velocidadeOnda = fase2Ativada ? 10f : 6f;
 
-    for (int i = 0; i < quantidadeOndas; i++)
-    {
-        float angulo = i * (360f / quantidadeOndas);
-        float rad = angulo * Mathf.Deg2Rad;
-        Vector2 direcao = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+        for (int i = 0; i < quantidadeOndas; i++)
+        {
+            float angulo = i * (360f / quantidadeOndas);
+            float rad = angulo * Mathf.Deg2Rad;
+            Vector2 direcao = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
 
-        GameObject onda = Instantiate(prefabOnda, transform.position, Quaternion.identity);
-        OndaChoque script = onda.GetComponent<OndaChoque>();
-        script.Inicializar(direcao);
-        script.velocidade = velocidadeOnda;
-    }
+            GameObject onda = Instantiate(prefabOnda, transform.position, Quaternion.identity);
+            OndaChoque script = onda.GetComponent<OndaChoque>();
+            script.Inicializar(direcao);
+            script.velocidade = velocidadeOnda;
+        }
     }
 
     void AtivarFase2()
@@ -177,6 +192,10 @@ public class BossGisilva : MonoBehaviour
 
         if (animator != null)
             animator.Play("attack_02");
+
+        // Som de invocar
+        if (audioSource != null && somInvocar != null)
+            audioSource.PlayOneShot(somInvocar);
 
         for (int i = 0; i < quantidadeInvocacao; i++)
         {
@@ -192,20 +211,30 @@ public class BossGisilva : MonoBehaviour
         if (animator != null)
             animator.SetTrigger("damage");
 
+        // Som de dano
+        if (audioSource != null && somDano != null)
+            audioSource.PlayOneShot(somDano);
+
         if (vidaAtual <= 0)
             Morrer();
     }
 
-    [Header("Efeito de Morte")]
-    public GameObject prefabEfeitoMorte;
-
     void Morrer()
     {
-    // Spawna o efeito de partículas na posição do boss
+    // Som de morte
+    if (audioSource != null && somMorte != null)
+        audioSource.PlayOneShot(somMorte);
+
     if (prefabEfeitoMorte != null)
         Instantiate(prefabEfeitoMorte, transform.position, Quaternion.identity);
 
-    Destroy(gameObject);
+    // Desativa componentes visuais e físicos imediatamente
+    if (spriteRenderer != null) spriteRenderer.enabled = false;
+    if (rb != null) rb.linearVelocity = Vector2.zero;
+    GetComponent<Collider2D>().enabled = false;
+
+    // Destroi depois do som terminar (1.5 segundos)
+    Destroy(gameObject, 1.5f);
     }
 
     void OnDrawGizmosSelected()

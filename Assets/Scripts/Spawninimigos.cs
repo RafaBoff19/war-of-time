@@ -58,10 +58,15 @@ public class SpawnInimigos : MonoBehaviour
 
     void SpawnarBoss()
     {
-        bossSpawnado = true;
-        Vector3 posSpawn = jogador.position + new Vector3(10f, 0f, 0f);
-        Instantiate(prefabBoss, posSpawn, Quaternion.identity);
-        Debug.Log("GISILVA APARECEU!");
+    bossSpawnado = true;
+    Vector3 posSpawn = jogador.position + new Vector3(10f, 0f, 0f);
+    Instantiate(prefabBoss, posSpawn, Quaternion.identity);
+
+    // Troca para a trilha do boss
+    if (GerenciadorMusica.instancia != null)
+        GerenciadorMusica.instancia.TocarBoss();
+
+    Debug.Log("BOSS APARECEU!");
     }
 
     void OnDrawGizmosSelected()

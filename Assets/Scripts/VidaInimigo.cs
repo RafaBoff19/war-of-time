@@ -6,13 +6,22 @@ public class VidaInimigo : MonoBehaviour
     public int vidaAtual;
     public int xpAoDarDrop = 10;
 
+    public AudioClip somMorte;
+    public AudioClip somSpawn;
+
     private Animator animator;
     private bool morto = false;
+    private AudioSource audioSource;
 
     void Start()
     {
         vidaAtual = vidaMaxima;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
+        // Toca som de spawn ao aparecer (volume mais baixo)
+        if (audioSource != null && somSpawn != null)
+        audioSource.PlayOneShot(somSpawn, 0.1f);
     }
 
     public void ReceberDano(int dano)
@@ -22,34 +31,44 @@ public class VidaInimigo : MonoBehaviour
         vidaAtual -= dano;
 
         if (vidaAtual <= 0)
-        {
             Morrer();
-        }
     }
 
     void Morrer()
     {
-    morto = true;
+        morto = true;
 
-    GameObject jogador = GameObject.FindWithTag("Player");
-    if (jogador != null)
-    {
-        NivelJogador nivel = jogador.GetComponent<NivelJogador>();
-        if (nivel != null)
-            nivel.GanharXP(xpAoDarDrop);
-    }
+        // Entrega XP ao jogador
+        GameObject jogador = GameObject.FindWithTag("Player");
+        if (jogador != null)
+        {
+            NivelJogador nivel = jogador.GetComponent<NivelJogador>();
+            if (nivel != null)
+                nivel.GanharXP(xpAoDarDrop);
+        }
 
-    GetComponent<InimigoPerseguidor>().enabled = false;
+        // Para movimento e física
+        InimigoPerseguidor perseguidor = GetComponent<InimigoPerseguidor>();
+        if (perseguidor != null) perseguidor.enabled = false;
 
-    Rigidbody2D rb = GetComponent<Rigidbody2D>();
-    rb.linearVelocity = Vector2.zero;
-    rb.bodyType = RigidbodyType2D.Static; // trava completamente a física
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Static;
+        }
 
-    GetComponent<Collider2D>().enabled = false;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
 
-    if (animator != null)
-        animator.Play("die");
+        // Toca animação de morte
+        if (animator != null)
+            animator.Play("die");
 
-    Destroy(gameObject, 1f);
+        // Toca som de morte
+        if (audioSource != null && somMorte != null)
+            audioSource.PlayOneShot(somMorte);
+
+        Destroy(gameObject, 1f);
     }
 }

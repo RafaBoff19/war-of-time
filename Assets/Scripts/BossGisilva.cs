@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BossGisilva : MonoBehaviour
@@ -219,24 +220,42 @@ public class BossGisilva : MonoBehaviour
             Morrer();
     }
 
-    void Morrer()
+   void Morrer()
     {
-    // Som de morte
     if (audioSource != null && somMorte != null)
         audioSource.PlayOneShot(somMorte);
 
     if (prefabEfeitoMorte != null)
         Instantiate(prefabEfeitoMorte, transform.position, Quaternion.identity);
 
-    // Desativa componentes visuais e físicos imediatamente
-    if (spriteRenderer != null) spriteRenderer.enabled = false;
-    if (rb != null) rb.linearVelocity = Vector2.zero;
-    GetComponent<Collider2D>().enabled = false;
+    if (GerenciadorMusica.instancia != null)
+        GerenciadorMusica.instancia.PararMusica();
 
-    // Destroi depois do som terminar (1.5 segundos)
-    Destroy(gameObject, 1.5f);
+    // Desativa todos os SpriteRenderers filhos
+    foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+        sr.enabled = false;
+
+    if (rb != null)
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Static;
+    }
+    GetComponent<Collider2D>().enabled = false;
+    this.enabled = false;
+
+    StartCoroutine(MostrarVitoriaComDelay());
     }
 
+    IEnumerator MostrarVitoriaComDelay()
+    {
+    yield return new WaitForSeconds(4f);
+
+    GameOver gameOver = FindObjectOfType<GameOver>();
+    if (gameOver != null)
+        gameOver.MostrarVitoria();
+
+    Destroy(gameObject);
+    }
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

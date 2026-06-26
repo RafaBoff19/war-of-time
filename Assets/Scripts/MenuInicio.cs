@@ -9,7 +9,9 @@ public class MenuInicio : MonoBehaviour
         if (MusicaMenu.instancia != null)
             Destroy(MusicaMenu.instancia.gameObject);
 
+        Time.timeScale = 1f; // garante que o tempo volta ao normal
         SceneManager.LoadScene("SampleScene");
+
     }
 
     public void AbrirHistoria()

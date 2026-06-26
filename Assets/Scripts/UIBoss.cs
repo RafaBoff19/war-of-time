@@ -39,4 +39,9 @@ public class UIBoss : MonoBehaviour
                 painelBoss.SetActive(false);
         }
     }
+    public void EsconderBoss()
+    {
+    if (painelBoss != null)
+        painelBoss.SetActive(false);
+    }
 }

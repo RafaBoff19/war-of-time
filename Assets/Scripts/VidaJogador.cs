@@ -28,23 +28,32 @@ public class VidaJogador : MonoBehaviour
 
     void Morrer()
     {
-        if (morto) return;
-        morto = true;
+    if (morto) return;
+    morto = true;
 
-        SomJogador som = GetComponent<SomJogador>();
-        if (som != null) som.TocarMorte();
+    // Para a música
+    if (GerenciadorMusica.instancia != null)
+        GerenciadorMusica.instancia.PararMusica();
 
-        if (animator != null)
-            animator.SetTrigger("Morrer");
+    // Esconde a barra do boss se estiver visível
+    UIBoss uiBoss = FindObjectOfType<UIBoss>();
+    if (uiBoss != null)
+        uiBoss.EsconderBoss();
 
-        PlayerMovement mov = GetComponent<PlayerMovement>();
-        if (mov != null) mov.enabled = false;
+    // Toca som de morte
+    SomJogador som = GetComponent<SomJogador>();
+    if (som != null) som.TocarMorte();
 
-        AtaqueJogador atk = GetComponent<AtaqueJogador>();
-        if (atk != null) atk.enabled = false;
+    if (animator != null)
+        animator.SetTrigger("Morrer");
 
-        Debug.Log("Portaluppi morreu! Chamando Game Over...");
-        Invoke("AcionarGameOver", 1.2f);
+    PlayerMovement mov = GetComponent<PlayerMovement>();
+    if (mov != null) mov.enabled = false;
+
+    AtaqueJogador atk = GetComponent<AtaqueJogador>();
+    if (atk != null) atk.enabled = false;
+
+    Invoke("AcionarGameOver", 1.5f);
     }
 
     void AcionarGameOver()

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class VidaInimigo : MonoBehaviour
@@ -26,12 +27,24 @@ public class VidaInimigo : MonoBehaviour
 
     public void ReceberDano(int dano)
     {
-        if (morto) return;
+    if (morto) return;
 
-        vidaAtual -= dano;
+    vidaAtual -= dano;
+    StartCoroutine(FlashVermelho());
 
-        if (vidaAtual <= 0)
-            Morrer();
+    if (vidaAtual <= 0)
+        Morrer();
+    }
+
+    IEnumerator FlashVermelho()
+    {
+    SpriteRenderer sr = GetComponent<SpriteRenderer>();
+    if (sr == null) yield break;
+
+    Color corOriginal = sr.color;
+    sr.color = Color.red;
+    yield return new WaitForSeconds(0.1f);
+    sr.color = corOriginal;
     }
 
     void Morrer()

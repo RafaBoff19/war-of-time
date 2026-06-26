@@ -171,8 +171,8 @@ public class BossGisilva : MonoBehaviour
 
     void SpawnarOndas()
     {
-        int quantidadeOndas = fase2Ativada ? 8 : 6;
-        float velocidadeOnda = fase2Ativada ? 10f : 6f;
+        int quantidadeOndas = fase2Ativada ? 10 : 8;
+        float velocidadeOnda = fase2Ativada ? 11f : 8f;
 
         for (int i = 0; i < quantidadeOndas; i++)
         {

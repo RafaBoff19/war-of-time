@@ -5396,11 +5396,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d356b1508e3bca4fadf7d9c59e176e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossGisilva
-  vidaMaxima: 300
+  vidaMaxima: 500
   vidaAtual: 0
   velocidade: 1.5
   alcanceAtaque: 2.5
-  danoAtaque: 20
+  danoAtaque: 25
   intervaloAtaqueCaC: 2
   prefabOnda: {fileID: 8102714066098004846, guid: e2c74c11782e70d48a2639a35a77db82, type: 3}
   intervaloOnda: 3

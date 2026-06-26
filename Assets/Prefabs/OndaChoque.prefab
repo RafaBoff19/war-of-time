@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OndaChoque
   velocidade: 36
-  dano: 40
+  dano: 50
 --- !u!198 &-963824813205934329
 ParticleSystem:
   m_ObjectHideFlags: 0

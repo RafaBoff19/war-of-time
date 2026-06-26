@@ -23,10 +23,18 @@ public class HoverBotao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public float tamanhoNormal = 15f;
     public float tamanhoHover = 18f;
 
+    [Header("Sons")]
+    public AudioClip somHover;
+    public AudioClip somClique;
+
+    private AudioSource audioSource;
+
     void Start()
     {
         if (texto == null)
             texto = GetComponentInChildren<TextMeshProUGUI>();
+
+        audioSource = GetComponent<AudioSource>();
 
         AplicarNormal();
     }
@@ -38,6 +46,9 @@ public class HoverBotao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         if (fundoHover != null)
             fundoHover.color = fundoDestaque;
+
+        if (somHover != null && audioSource != null)
+            audioSource.PlayOneShot(somHover);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -47,6 +58,9 @@ public class HoverBotao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (somClique != null && audioSource != null)
+            audioSource.PlayOneShot(somClique);
+
         AplicarNormal();
     }
 
